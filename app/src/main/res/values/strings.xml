@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Homework2</string>
-    <string name="title_text">Big O</string>
+    <string name="app_name">Big O</string>
     <string name="email_header_text">Email</string>
     <string name="email_address_hint">Email Address</string>
     <string name="email_subject_hint">Email Subject</string>

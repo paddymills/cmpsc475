@@ -21,43 +21,37 @@
 
     <EditText
         android:id="@+id/editTextEmailAddress"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
         android:autofillHints="emailAddress"
         android:ems="10"
         android:hint="@string/email_address_hint"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmailTitle" />
+        app:layout_constraintEnd_toStartOf="@+id/editTextEmailSubject"
+        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintStart_toEndOf="@+id/textViewComplexity"
+        app:layout_constraintTop_toTopOf="@+id/textViewEmailTitle" />
 
     <EditText
         android:id="@+id/editTextEmailSubject"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints="subject"
         android:ems="10"
         android:hint="@string/email_subject_hint"
         android:inputType="textEmailSubject"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddress" />
+        app:layout_constraintTop_toTopOf="@+id/editTextEmailAddress" />
 
     <TextView
         android:id="@+id/textViewComplexity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/complexity_header_text"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEmailTitle"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailSubject" />
 
     <TextView
@@ -65,58 +59,60 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="@string/data_structure_header_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewComplexity" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewComplexity"
+        app:layout_constraintStart_toEndOf="@+id/textViewComplexity"
+        app:layout_constraintTop_toTopOf="@+id/textViewComplexity" />
 
     <Spinner
         android:id="@+id/spinnerDataStructure"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
         android:contentDescription="@string/data_structure_aria"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDataStructure" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewDataStructure"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailSubject"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textViewDataStructure"
+        app:layout_constraintTop_toTopOf="@+id/textViewDataStructure" />
 
     <TextView
         android:id="@+id/textViewOperations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/operations_header_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewDataStructure"
         app:layout_constraintTop_toBottomOf="@+id/spinnerDataStructure" />
 
     <CheckBox
         android:id="@+id/checkBoxOpsMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/operations_min_text"
-        app:layout_constraintEnd_toStartOf="@+id/checkBoxOpsInsert"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOperations" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewOperations"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerDataStructure"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spinnerDataStructure"
+        app:layout_constraintTop_toTopOf="@+id/textViewOperations" />
 
     <CheckBox
         android:id="@+id/checkBoxOpsInsert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/operations_insert_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerDataStructure"
+        app:layout_constraintStart_toStartOf="@+id/spinnerDataStructure"
         app:layout_constraintTop_toTopOf="@+id/checkBoxOpsMin" />
 
     <CheckBox
         android:id="@+id/checkBoxOpsSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:text="@string/operations_search_text"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerDataStructure"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/checkBoxOpsInsert"
         app:layout_constraintTop_toTopOf="@+id/checkBoxOpsInsert" />
 
@@ -124,24 +120,21 @@
         android:id="@+id/textViewCase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:text="@string/case_header_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewDataStructure"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxOpsMin" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
         android:checkedButton="@id/radioButtonAverageCase"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCase">
+        app:layout_constraintBottom_toBottomOf="@+id/textViewCase"
+        app:layout_constraintEnd_toEndOf="@+id/editTextEmailSubject"
+        app:layout_constraintStart_toStartOf="@+id/spinnerDataStructure"
+        app:layout_constraintTop_toTopOf="@+id/textViewCase">
 
         <RadioButton
             android:id="@+id/radioButtonAverageCase"
@@ -163,30 +156,28 @@
         android:id="@+id/textViewResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/result_header_text"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewEmailTitle"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/textViewResultTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/to_label_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewResult"
         app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
 
     <TextView
         android:id="@+id/textViewResultSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:text="@string/subject_label_text"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textViewResultTo"
         app:layout_constraintTop_toBottomOf="@+id/textViewResultTo" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

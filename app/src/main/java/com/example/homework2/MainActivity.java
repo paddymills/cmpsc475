@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setContentView(R.layout.activity_main);
+
+
         // set data structures spinner values
         // adapted from the android docs: https://developer.android.com/develop/ui/views/components/spinner#java
 
@@ -30,7 +33,5 @@ public class MainActivity extends AppCompatActivity {
 
         // apply adapter to spinner
         ds_spinner.setAdapter( ds_adapter );
-
-        setContentView(R.layout.activity_main);
     }
 }
