@@ -1,4 +1,4 @@
-package com.example.homework2;
+package psu.pjm6196.bigo.bigo;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.homework2", appContext.getPackageName());
+        assertEquals("psu.pjm6196.bigo", appContext.getPackageName());
     }
 }

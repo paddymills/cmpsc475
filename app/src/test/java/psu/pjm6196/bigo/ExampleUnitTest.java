@@ -1,4 +1,4 @@
-package com.example.homework2;
+package psu.pjm6196.bigo.bigo;
 
 import org.junit.Test;
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="inherit"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".bigo.MainActivity">
 
     <TextView
         android:id="@+id/textViewEmailTitle"
@@ -196,6 +196,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:onClick="showResult"
         android:contentDescription="@string/email_icon_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

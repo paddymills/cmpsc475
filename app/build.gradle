@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.homework2'
+    namespace 'psu.pjm6196.bigo'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.homework2"
+        applicationId "psu.pjm6196.bigo"
         minSdk 27
         targetSdk 33
         versionCode 1

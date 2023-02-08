@@ -1,10 +1,15 @@
-package com.example.homework2;
+package psu.pjm6196.bigo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import psu.pjm6196.bigo.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,5 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         // apply adapter to spinner
         ds_spinner.setAdapter( ds_adapter );
+    }
+
+    public void showResult(View view) {
+        EditText emailAddress = (EditText) findViewById( R.id.editTextEmailAddress );
+
+//        TextView toLabel = (TextView) findViewById( R.id.textViewResultTo ).
+        R.string.to_label_text += emailAddress.getText().toString();
     }
 }
