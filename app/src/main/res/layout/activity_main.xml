@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layoutDirection="inherit"
     android:orientation="horizontal"
-    tools:context=".bigo.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewEmailTitle"
@@ -188,6 +188,14 @@
         android:text="@string/subject_label_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewResultTo" />
+
+    <TextView
+        android:id="@+id/textViewResultBigO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultSubject" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

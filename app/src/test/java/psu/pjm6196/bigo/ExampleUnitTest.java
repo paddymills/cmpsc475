@@ -1,4 +1,4 @@
-package psu.pjm6196.bigo.bigo;
+package psu.pjm6196.bigo;
 
 import org.junit.Test;
 

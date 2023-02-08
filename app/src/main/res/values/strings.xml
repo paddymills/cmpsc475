@@ -24,4 +24,5 @@
         <item>Linked List</item>
         <item>Min Heap</item>
     </string-array>
+    <string name="time_complexity_text">Time Complexity for</string>
 </resources>
