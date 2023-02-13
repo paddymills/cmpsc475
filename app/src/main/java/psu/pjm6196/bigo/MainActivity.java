@@ -1,6 +1,7 @@
 package psu.pjm6196.bigo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+        // toolbar
+        Toolbar headerToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(headerToolbar);
 
         // set data structures spinner values
         // adapted from the android docs: https://developer.android.com/develop/ui/views/components/spinner#java
