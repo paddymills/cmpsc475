@@ -171,22 +171,21 @@ public class MainActivity extends AppCompatActivity {
         // ~~~~~~~~~~~~~~~~~~~~ get email text fields ~~~~~~~~~~~~~~~~~~~~
         EditText emailAddress = (EditText) findViewById( R.id.editTextEmailAddress );
         EditText emailSubject = (EditText) findViewById( R.id.editTextEmailSubject );
-        TextView emailBody = (TextView) findViewById( R.id.textViewResultBigO);
+        TextView emailBody = (TextView) findViewById( R.id.textViewResultBigO );
+
+        String[] addresses = { emailAddress.getText().toString() };
+        String subject = emailSubject.getText().toString();
+        String body = emailBody.getText().toString();
 
         // modified from android docs: https://developer.android.com/guide/components/intents-common#ComposeEmail
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // target email apps
-        intent.putExtra(Intent.EXTRA_EMAIL, emailAddress.getText());
-        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject.getText());
-        intent.putExtra(Intent.EXTRA_TEXT, emailBody.getText());
+        intent.putExtra(Intent.EXTRA_EMAIL, addresses );
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject );
+        intent.putExtra(Intent.EXTRA_TEXT, body );
 
         // I assume this checks for an available email app
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            Log.d("MAIN:TOOLBAR", "composeEmail: email composed and handed to email client");
-            startActivity(intent);
-        } else {
-            Log.e("MAIN:TOOLBAR", "composeEmail: email not composed. possibly no email client available");
-        }
-
+        startActivity(intent);
+        Log.d("MAIN:TOOLBAR", "composeEmail: email composed and handed to email client");
     }
 }
