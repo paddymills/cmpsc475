@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -65,10 +68,25 @@ public class MainActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.menu_compose:
+                Log.d("TOOLBAR", "onOptionsItemSelected: title is " + item.getTitle() );
                 // if icon is pen, display result
-                showResult();
+                if ( item.getTitle() == getText(R.string.menu_compose) ) {
+                    Log.d("TOOLBAR", "icon is edit");
+                    showResult();
+
+                    // set icon to envelop
+                    item.setIcon(R.drawable.ic_action_send);
+                    item.setTitle(R.string.menu_send);
+                }
 
                 // if icon is envelope, fire send email intent
+                else {
+                    Log.d("TOOLBAR", "icon is send (not edit)");
+
+                    // set icon to pen
+                    item.setIcon(R.drawable.ic_action_edit);
+                    item.setTitle(R.string.menu_compose);
+                }
 
                 return true;
             case R.id.menu_settings:
@@ -81,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void showResult(View view) {
+    public void showResult() {
 
 
         // ~~~~~~~~~~~~~~~~~~~~ set results: email address ~~~~~~~~~~~~~~~~~~~~
