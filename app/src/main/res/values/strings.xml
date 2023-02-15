@@ -25,4 +25,7 @@
         <item>Min Heap</item>
     </string-array>
     <string name="time_complexity_text">Time Complexity for</string>
+    <string name="menu_compose">Compose</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_settings">Settings</string>
 </resources>

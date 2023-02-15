@@ -5,11 +5,12 @@
     tools:context="edu.psu.jjb24.ab_ex.MainActivity">
 
     <item android:id="@+id/menu_save"
-        android:icon="@drawable/ic_menu_save"
-        android:title="@string/menu_save"
+        android:icon="@drawable/ic_menu_compose"
+        android:title="@string/menu_compose"
         app:showAsAction="ifRoom|withText" />
     <item android:id="@+id/menu_settings"
         android:icon="@drawable/ic_menu_settings"
+        android:title="@string/menu_settings"
         app:showAsAction="never" />
 
 </menu>
