@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.psu.jjb24.ab_ex.MainActivity">
 
-    <item android:id="@+id/menu_save"
+    <item android:id="@+id/menu_compose"
         android:icon="@drawable/ic_menu_compose"
         android:title="@string/menu_compose"
         app:showAsAction="ifRoom|withText" />

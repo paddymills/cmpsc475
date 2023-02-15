@@ -53,6 +53,34 @@ public class MainActivity extends AppCompatActivity {
         ds_spinner.setAdapter( ds_adapter );
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.toolbar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_compose:
+                // if icon is pen, display result
+                showResult();
+
+                // if icon is envelope, fire send email intent
+
+                return true;
+            case R.id.menu_settings:
+                // hidden, so do nothing
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
     public void showResult(View view) {
 
 
