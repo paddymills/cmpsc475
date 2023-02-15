@@ -3,6 +3,8 @@ package psu.pjm6196.bigo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TOOLBAR", "onOptionsItemSelected: title is " + item.getTitle() );
                 // if icon is pen, display result
                 if ( item.getTitle() == getText(R.string.menu_compose) ) {
-                    Log.d("TOOLBAR", "icon is edit");
+                    Log.d("TOOLBAR", "showing result");
                     showResult();
 
                     // set icon to envelop
@@ -81,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // if icon is envelope, fire send email intent
                 else {
-                    Log.d("TOOLBAR", "icon is send (not edit)");
+                    Log.d("TOOLBAR", "composing email");
+                    composeEmail();
 
                     // set icon to pen
                     item.setIcon(R.drawable.ic_action_edit);
@@ -100,8 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showResult() {
-
-
         // ~~~~~~~~~~~~~~~~~~~~ set results: email address ~~~~~~~~~~~~~~~~~~~~
         EditText emailAddress = (EditText) findViewById( R.id.editTextEmailAddress );
         TextView resultTo = (TextView) findViewById( R.id.textViewResultTo );
@@ -162,5 +163,30 @@ public class MainActivity extends AppCompatActivity {
             else
                 resultBigO.append( SEARCH_AVG[dataStructureIndex] );
         }
+    }
+
+    public void composeEmail() {
+
+
+        // ~~~~~~~~~~~~~~~~~~~~ get email text fields ~~~~~~~~~~~~~~~~~~~~
+        EditText emailAddress = (EditText) findViewById( R.id.editTextEmailAddress );
+        EditText emailSubject = (EditText) findViewById( R.id.editTextEmailSubject );
+        TextView emailBody = (TextView) findViewById( R.id.textViewResultBigO);
+
+        // modified from android docs: https://developer.android.com/guide/components/intents-common#ComposeEmail
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // target email apps
+        intent.putExtra(Intent.EXTRA_EMAIL, emailAddress.getText());
+        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject.getText());
+        intent.putExtra(Intent.EXTRA_TEXT, emailBody.getText());
+
+        // I assume this checks for an available email app
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            Log.d("MAIN:TOOLBAR", "composeEmail: email composed and handed to email client");
+            startActivity(intent);
+        } else {
+            Log.e("MAIN:TOOLBAR", "composeEmail: email not composed. possibly no email client available");
+        }
+
     }
 }
